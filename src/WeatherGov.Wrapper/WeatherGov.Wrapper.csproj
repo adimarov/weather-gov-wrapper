@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>WeatherGov.Wrapper</AssemblyName>
+    <PackageId>WeatherGov.Wrapper</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>adimarov</Authors>
+    <Company>adimarov</Company>
+    <AssemblyTitle>WeatherGov.Wrapper</AssemblyTitle>
+    <Description>WeatherGov.Wrapper library generated from a OpenAPI doc</Description>
+    <Copyright>No Copyright</Copyright>
+    <RootNamespace>WeatherGov.Wrapper</RootNamespace>
+    <Version>1.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\WeatherGov.Wrapper.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/adimarov/weather-gov-wrapper.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="System.Web" />
+  </ItemGroup>
+</Project>
