@@ -70,11 +70,10 @@ c.Proxy = webProxy;
 ## Getting Started
 
 ```csharp
-using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using WeatherGov.Wrapper.Api;
+using WeatherGov.Wrapper.Client;
+using WeatherGov.Wrapper.Model;
 
 namespace Example
 {
@@ -91,29 +90,29 @@ namespace Example
             // config.ApiKeyPrefix.Add("User-Agent", "Bearer");
 
             var apiInstance = new DefaultApi(config);
-            var status = new List<string>?(); // List<string>? | Status (actual, exercise, system, test, draft) (optional) 
-            var messageType = new List<string>?(); // List<string>? | Message type (alert, update, cancel) (optional) 
-            var varEvent = new List<string>?(); // List<string>? | Event name (optional) 
-            var code = new List<string>?(); // List<string>? | Event code (optional) 
-            var area = new List<AreaCode>?(); // List<AreaCode>? | State/territory code or marine area code This parameter is incompatible with the following parameters: point, region, region_type, zone  (optional) 
+            var status = new List<string>(); // List<string>? | Status (actual, exercise, system, test, draft) (optional) 
+            var messageType = new List<string>(); // List<string>? | Message type (alert, update, cancel) (optional) 
+            var varEvent = new List<string>(); // List<string>? | Event name (optional) 
+            var code = new List<string>(); // List<string>? | Event code (optional) 
+            var area = new List<AreaCode>(); // List<AreaCode>? | State/territory code or marine area code This parameter is incompatible with the following parameters: point, region, region_type, zone  (optional) 
             var point = "point_example";  // string? | Point (latitude,longitude) This parameter is incompatible with the following parameters: area, region, region_type, zone  (optional) 
-            var region = new List<MarineRegionCode>?(); // List<MarineRegionCode>? | Marine region code This parameter is incompatible with the following parameters: area, point, region_type, zone  (optional) 
+            var region = new List<MarineRegionCode>(); // List<MarineRegionCode>? | Marine region code This parameter is incompatible with the following parameters: area, point, region_type, zone  (optional) 
             var regionType = "land";  // string? | Region type (land or marine) This parameter is incompatible with the following parameters: area, point, region, zone  (optional) 
-            var zone = new List<string>?(); // List<string>? | Zone ID (forecast or county) This parameter is incompatible with the following parameters: area, point, region, region_type  (optional) 
-            var urgency = new List<AlertUrgency>?(); // List<AlertUrgency>? | Urgency (immediate, expected, future, past, unknown) (optional) 
-            var severity = new List<AlertSeverity>?(); // List<AlertSeverity>? | Severity (extreme, severe, moderate, minor, unknown) (optional) 
-            var certainty = new List<AlertCertainty>?(); // List<AlertCertainty>? | Certainty (observed, likely, possible, unlikely, unknown) (optional) 
+            var zone = new List<string>(); // List<string>? | Zone ID (forecast or county) This parameter is incompatible with the following parameters: area, point, region, region_type  (optional) 
+            var urgency = new List<AlertUrgency>(); // List<AlertUrgency>? | Urgency (immediate, expected, future, past, unknown) (optional) 
+            var severity = new List<AlertSeverity>(); // List<AlertSeverity>? | Severity (extreme, severe, moderate, minor, unknown) (optional) 
+            var certainty = new List<AlertCertainty>(); // List<AlertCertainty>? | Certainty (observed, likely, possible, unlikely, unknown) (optional) 
             var limit = 500;  // int? | Limit (optional)  (default to 500)
 
             try
             {
-                AlertCollectionGeoJson result = apiInstance.AlertsActive(status, messageType, varEvent, code, area, point, region, regionType, zone, urgency, severity, certainty, limit);
+                var result = apiInstance.AlertsActive(status, messageType, varEvent, code, area, point, region, regionType, zone, urgency, severity, certainty, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling DefaultApi.AlertsActive: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.AlertsActive: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
 
@@ -122,71 +121,30 @@ namespace Example
 }
 ```
 
-<a id="documentation-for-api-endpoints"></a>
-## Documentation for API Endpoints
+<a id="reading-a-forecast"></a>
+## Reading a Forecast
+```csharp
+using Polly;
+using RestSharp;
+using WeatherGov.Wrapper.Api;
+using WeatherGov.Wrapper.Client;
 
-All URIs are relative to *https://api.weather.gov*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*DefaultApi* | [**AlertsActive**](docs/DefaultApi.md#alertsactive) | **GET** /alerts/active | 
-*DefaultApi* | [**AlertsActiveArea**](docs/DefaultApi.md#alertsactivearea) | **GET** /alerts/active/area/{area} | 
-*DefaultApi* | [**AlertsActiveCount**](docs/DefaultApi.md#alertsactivecount) | **GET** /alerts/active/count | 
-*DefaultApi* | [**AlertsActiveRegion**](docs/DefaultApi.md#alertsactiveregion) | **GET** /alerts/active/region/{region} | 
-*DefaultApi* | [**AlertsActiveZone**](docs/DefaultApi.md#alertsactivezone) | **GET** /alerts/active/zone/{zoneId} | 
-*DefaultApi* | [**AlertsQuery**](docs/DefaultApi.md#alertsquery) | **GET** /alerts | 
-*DefaultApi* | [**AlertsSingle**](docs/DefaultApi.md#alertssingle) | **GET** /alerts/{id} | 
-*DefaultApi* | [**AlertsTypes**](docs/DefaultApi.md#alertstypes) | **GET** /alerts/types | 
-*DefaultApi* | [**Cwa**](docs/DefaultApi.md#cwa) | **GET** /aviation/cwsus/{cwsuId}/cwas/{date}/{sequence} | 
-*DefaultApi* | [**Cwas**](docs/DefaultApi.md#cwas) | **GET** /aviation/cwsus/{cwsuId}/cwas | 
-*DefaultApi* | [**Cwsu**](docs/DefaultApi.md#cwsu) | **GET** /aviation/cwsus/{cwsuId} | 
-*DefaultApi* | [**Glossary**](docs/DefaultApi.md#glossary) | **GET** /glossary | 
-*DefaultApi* | [**Gridpoint**](docs/DefaultApi.md#gridpoint) | **GET** /gridpoints/{wfo}/{x},{y} | 
-*DefaultApi* | [**GridpointForecast**](docs/DefaultApi.md#gridpointforecast) | **GET** /gridpoints/{wfo}/{x},{y}/forecast | 
-*DefaultApi* | [**GridpointForecastHourly**](docs/DefaultApi.md#gridpointforecasthourly) | **GET** /gridpoints/{wfo}/{x},{y}/forecast/hourly | 
-*DefaultApi* | [**GridpointStations**](docs/DefaultApi.md#gridpointstations) | **GET** /gridpoints/{wfo}/{x},{y}/stations | 
-*DefaultApi* | [**Icons**](docs/DefaultApi.md#icons) | **GET** /icons/{set}/{timeOfDay}/{first} | 
-*DefaultApi* | [**IconsDualCondition**](docs/DefaultApi.md#iconsdualcondition) | **GET** /icons/{set}/{timeOfDay}/{first}/{second} | 
-*DefaultApi* | [**IconsSummary**](docs/DefaultApi.md#iconssummary) | **GET** /icons | 
-*DefaultApi* | [**LocationProducts**](docs/DefaultApi.md#locationproducts) | **GET** /products/locations/{locationId}/types | 
-*DefaultApi* | [**ObsStation**](docs/DefaultApi.md#obsstation) | **GET** /stations/{stationId} | 
-*DefaultApi* | [**ObsStations**](docs/DefaultApi.md#obsstations) | **GET** /stations | 
-*DefaultApi* | [**Office**](docs/DefaultApi.md#office) | **GET** /offices/{officeId} | 
-*DefaultApi* | [**OfficeHeadline**](docs/DefaultApi.md#officeheadline) | **GET** /offices/{officeId}/headlines/{headlineId} | 
-*DefaultApi* | [**OfficeHeadlines**](docs/DefaultApi.md#officeheadlines) | **GET** /offices/{officeId}/headlines | 
-*DefaultApi* | [**Point**](docs/DefaultApi.md#point) | **GET** /points/{point} | 
-*DefaultApi* | [**PointStations**](docs/DefaultApi.md#pointstations) | **GET** /points/{point}/stations | 
-*DefaultApi* | [**Product**](docs/DefaultApi.md#product) | **GET** /products/{productId} | 
-*DefaultApi* | [**ProductLocations**](docs/DefaultApi.md#productlocations) | **GET** /products/locations | 
-*DefaultApi* | [**ProductTypes**](docs/DefaultApi.md#producttypes) | **GET** /products/types | 
-*DefaultApi* | [**ProductsQuery**](docs/DefaultApi.md#productsquery) | **GET** /products | 
-*DefaultApi* | [**ProductsType**](docs/DefaultApi.md#productstype) | **GET** /products/types/{typeId} | 
-*DefaultApi* | [**ProductsTypeLocation**](docs/DefaultApi.md#productstypelocation) | **GET** /products/types/{typeId}/locations/{locationId} | 
-*DefaultApi* | [**ProductsTypeLocations**](docs/DefaultApi.md#productstypelocations) | **GET** /products/types/{typeId}/locations | 
-*DefaultApi* | [**RadarProfiler**](docs/DefaultApi.md#radarprofiler) | **GET** /radar/profilers/{stationId} | 
-*DefaultApi* | [**RadarQueue**](docs/DefaultApi.md#radarqueue) | **GET** /radar/queues/{host} | 
-*DefaultApi* | [**RadarServer**](docs/DefaultApi.md#radarserver) | **GET** /radar/servers/{id} | 
-*DefaultApi* | [**RadarServers**](docs/DefaultApi.md#radarservers) | **GET** /radar/servers | 
-*DefaultApi* | [**RadarStation**](docs/DefaultApi.md#radarstation) | **GET** /radar/stations/{stationId} | 
-*DefaultApi* | [**RadarStationAlarms**](docs/DefaultApi.md#radarstationalarms) | **GET** /radar/stations/{stationId}/alarms | 
-*DefaultApi* | [**RadarStations**](docs/DefaultApi.md#radarstations) | **GET** /radar/stations | 
-*DefaultApi* | [**SatelliteThumbnails**](docs/DefaultApi.md#satellitethumbnails) | **GET** /thumbnails/satellite/{area} | 
-*DefaultApi* | [**Sigmet**](docs/DefaultApi.md#sigmet) | **GET** /aviation/sigmets/{atsu}/{date}/{time} | 
-*DefaultApi* | [**SigmetQuery**](docs/DefaultApi.md#sigmetquery) | **GET** /aviation/sigmets | 
-*DefaultApi* | [**SigmetsByATSU**](docs/DefaultApi.md#sigmetsbyatsu) | **GET** /aviation/sigmets/{atsu} | 
-*DefaultApi* | [**SigmetsByATSUByDate**](docs/DefaultApi.md#sigmetsbyatsubydate) | **GET** /aviation/sigmets/{atsu}/{date} | 
-*DefaultApi* | [**StationObservationLatest**](docs/DefaultApi.md#stationobservationlatest) | **GET** /stations/{stationId}/observations/latest | 
-*DefaultApi* | [**StationObservationList**](docs/DefaultApi.md#stationobservationlist) | **GET** /stations/{stationId}/observations | 
-*DefaultApi* | [**StationObservationTime**](docs/DefaultApi.md#stationobservationtime) | **GET** /stations/{stationId}/observations/{time} | 
-*DefaultApi* | [**Taf**](docs/DefaultApi.md#taf) | **GET** /stations/{stationId}/tafs/{date}/{time} | 
-*DefaultApi* | [**Tafs**](docs/DefaultApi.md#tafs) | **GET** /stations/{stationId}/tafs | 
-*DefaultApi* | [**Zone**](docs/DefaultApi.md#zone) | **GET** /zones/{type}/{zoneId} | 
-*DefaultApi* | [**ZoneForecast**](docs/DefaultApi.md#zoneforecast) | **GET** /zones/{type}/{zoneId}/forecast | 
-*DefaultApi* | [**ZoneList**](docs/DefaultApi.md#zonelist) | **GET** /zones | 
-*DefaultApi* | [**ZoneListType**](docs/DefaultApi.md#zonelisttype) | **GET** /zones/{type} | 
-*DefaultApi* | [**ZoneObs**](docs/DefaultApi.md#zoneobs) | **GET** /zones/forecast/{zoneId}/observations | 
-*DefaultApi* | [**ZoneStations**](docs/DefaultApi.md#zonestations) | **GET** /zones/forecast/{zoneId}/stations | 
+Random jitter = new Random();
 
+
+var policy = Policy<RestResponse>
+  .Handle<Exception>()
+  .WaitAndRetryAsync(5,
+      retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                    + TimeSpan.FromMilliseconds(jitter.Next(0, 1000))
+  );
+
+RetryConfiguration.AsyncRetryPolicy = policy;
+
+var api = new DefaultApi("https://api.weather.gov");
+var result = await api.GridpointForecastAsync(WeatherGov.Wrapper.Model.NWSForecastOfficeId.TBW, 61, 104);
+```
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models

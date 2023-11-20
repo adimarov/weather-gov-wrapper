@@ -1,6 +1,4 @@
-﻿using GeoJSON.Net.Feature;
-using Newtonsoft.Json;
-using Polly;
+﻿using Polly;
 using RestSharp;
 using WeatherGov.Wrapper.Api;
 using WeatherGov.Wrapper.Client;
