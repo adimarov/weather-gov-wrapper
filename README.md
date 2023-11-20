@@ -1,4 +1,4 @@
-# Org.OpenAPITools - the C# library for the weather.gov API
+# Weather.Gov.Wrapper - the C# library for the weather.gov API
 
 weather.gov API
 
@@ -38,9 +38,9 @@ Run the following command to generate the DLL
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using WeatherGov.Wrapper.Api;
+using WeatherGov.Wrapper.Client;
+using WeatherGov.Wrapper.Model;
 ```
 <a id="packaging"></a>
 ## Packaging
@@ -50,7 +50,7 @@ A `.nuspec` is included with the project. You can follow the Nuget quickstart to
 This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
 
 ```
-nuget pack -Build -OutputDirectory out Org.OpenAPITools.csproj
+nuget pack -Build -OutputDirectory out WeatherGov.Wrapper.csproj
 ```
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
@@ -190,62 +190,19 @@ Class | Method | HTTP request | Description
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
-
- - [Model.Alert](docs/Alert.md)
- - [Model.AlertAtomEntry](docs/AlertAtomEntry.md)
- - [Model.AlertAtomEntryAuthor](docs/AlertAtomEntryAuthor.md)
- - [Model.AlertAtomFeed](docs/AlertAtomFeed.md)
- - [Model.AlertAtomFeedAuthor](docs/AlertAtomFeedAuthor.md)
  - [Model.AlertCertainty](docs/AlertCertainty.md)
- - [Model.AlertCollection](docs/AlertCollection.md)
- - [Model.AlertCollectionGeoJson](docs/AlertCollectionGeoJson.md)
- - [Model.AlertCollectionGeoJsonAllOfFeatures](docs/AlertCollectionGeoJsonAllOfFeatures.md)
- - [Model.AlertCollectionJsonLd](docs/AlertCollectionJsonLd.md)
- - [Model.AlertGeoJson](docs/AlertGeoJson.md)
- - [Model.AlertGeocode](docs/AlertGeocode.md)
- - [Model.AlertJsonLd](docs/AlertJsonLd.md)
- - [Model.AlertMessageType](docs/AlertMessageType.md)
- - [Model.AlertReferencesInner](docs/AlertReferencesInner.md)
  - [Model.AlertSeverity](docs/AlertSeverity.md)
- - [Model.AlertStatus](docs/AlertStatus.md)
  - [Model.AlertUrgency](docs/AlertUrgency.md)
- - [Model.AlertXMLParameter](docs/AlertXMLParameter.md)
  - [Model.AlertsActiveCount200Response](docs/AlertsActiveCount200Response.md)
  - [Model.AlertsTypes200Response](docs/AlertsTypes200Response.md)
  - [Model.AreaCode](docs/AreaCode.md)
- - [Model.CenterWeatherAdvisory](docs/CenterWeatherAdvisory.md)
- - [Model.CenterWeatherAdvisoryCollectionGeoJson](docs/CenterWeatherAdvisoryCollectionGeoJson.md)
- - [Model.CenterWeatherAdvisoryCollectionGeoJsonAllOfFeatures](docs/CenterWeatherAdvisoryCollectionGeoJsonAllOfFeatures.md)
- - [Model.CenterWeatherAdvisoryGeoJson](docs/CenterWeatherAdvisoryGeoJson.md)
- - [Model.GeoJSONLineString](docs/GeoJSONLineString.md)
- - [Model.GeoJSONMultiLineString](docs/GeoJSONMultiLineString.md)
- - [Model.GeoJSONMultiPoint](docs/GeoJSONMultiPoint.md)
- - [Model.GeoJSONMultiPolygon](docs/GeoJSONMultiPolygon.md)
- - [Model.GeoJSONPoint](docs/GeoJSONPoint.md)
- - [Model.GeoJSONPolygon](docs/GeoJSONPolygon.md)
- - [Model.GeoJsonFeature](docs/GeoJsonFeature.md)
- - [Model.GeoJsonFeatureCollection](docs/GeoJsonFeatureCollection.md)
- - [Model.GeoJsonGeometry](docs/GeoJsonGeometry.md)
  - [Model.Glossary200Response](docs/Glossary200Response.md)
  - [Model.Glossary200ResponseGlossaryInner](docs/Glossary200ResponseGlossaryInner.md)
- - [Model.Gridpoint](docs/Gridpoint.md)
- - [Model.GridpointForecast](docs/GridpointForecast.md)
- - [Model.GridpointForecastGeoJson](docs/GridpointForecastGeoJson.md)
- - [Model.GridpointForecastJsonLd](docs/GridpointForecastJsonLd.md)
  - [Model.GridpointForecastPeriod](docs/GridpointForecastPeriod.md)
  - [Model.GridpointForecastPeriodTemperature](docs/GridpointForecastPeriodTemperature.md)
  - [Model.GridpointForecastPeriodWindGust](docs/GridpointForecastPeriodWindGust.md)
  - [Model.GridpointForecastPeriodWindSpeed](docs/GridpointForecastPeriodWindSpeed.md)
  - [Model.GridpointForecastUnits](docs/GridpointForecastUnits.md)
- - [Model.GridpointGeoJson](docs/GridpointGeoJson.md)
- - [Model.GridpointHazards](docs/GridpointHazards.md)
- - [Model.GridpointHazardsValuesInner](docs/GridpointHazardsValuesInner.md)
- - [Model.GridpointHazardsValuesInnerValueInner](docs/GridpointHazardsValuesInnerValueInner.md)
- - [Model.GridpointQuantitativeValueLayer](docs/GridpointQuantitativeValueLayer.md)
- - [Model.GridpointQuantitativeValueLayerValuesInner](docs/GridpointQuantitativeValueLayerValuesInner.md)
- - [Model.GridpointWeather](docs/GridpointWeather.md)
- - [Model.GridpointWeatherValuesInner](docs/GridpointWeatherValuesInner.md)
- - [Model.GridpointWeatherValuesInnerValueInner](docs/GridpointWeatherValuesInnerValueInner.md)
  - [Model.ISO8601Interval](docs/ISO8601Interval.md)
  - [Model.IconsSizeParameter](docs/IconsSizeParameter.md)
  - [Model.IconsSummary200Response](docs/IconsSummary200Response.md)
@@ -254,60 +211,28 @@ Class | Method | HTTP request | Description
  - [Model.LandRegionCode](docs/LandRegionCode.md)
  - [Model.MarineAreaCode](docs/MarineAreaCode.md)
  - [Model.MarineRegionCode](docs/MarineRegionCode.md)
- - [Model.MetarPhenomenon](docs/MetarPhenomenon.md)
- - [Model.MetarSkyCoverage](docs/MetarSkyCoverage.md)
  - [Model.NWSCenterWeatherServiceUnitId](docs/NWSCenterWeatherServiceUnitId.md)
  - [Model.NWSForecastOfficeId](docs/NWSForecastOfficeId.md)
  - [Model.NWSNationalHQId](docs/NWSNationalHQId.md)
  - [Model.NWSOfficeId](docs/NWSOfficeId.md)
  - [Model.NWSRegionalHQId](docs/NWSRegionalHQId.md)
  - [Model.NWSZoneType](docs/NWSZoneType.md)
- - [Model.Observation](docs/Observation.md)
- - [Model.ObservationCloudLayersInner](docs/ObservationCloudLayersInner.md)
- - [Model.ObservationCollectionGeoJson](docs/ObservationCollectionGeoJson.md)
- - [Model.ObservationCollectionGeoJsonAllOfFeatures](docs/ObservationCollectionGeoJsonAllOfFeatures.md)
- - [Model.ObservationCollectionJsonLd](docs/ObservationCollectionJsonLd.md)
- - [Model.ObservationGeoJson](docs/ObservationGeoJson.md)
- - [Model.ObservationStation](docs/ObservationStation.md)
- - [Model.ObservationStationCollectionGeoJson](docs/ObservationStationCollectionGeoJson.md)
- - [Model.ObservationStationCollectionGeoJsonAllOfFeatures](docs/ObservationStationCollectionGeoJsonAllOfFeatures.md)
- - [Model.ObservationStationCollectionJsonLd](docs/ObservationStationCollectionJsonLd.md)
- - [Model.ObservationStationGeoJson](docs/ObservationStationGeoJson.md)
- - [Model.ObservationStationJsonLd](docs/ObservationStationJsonLd.md)
  - [Model.Office](docs/Office.md)
  - [Model.OfficeAddress](docs/OfficeAddress.md)
  - [Model.OfficeHeadline](docs/OfficeHeadline.md)
  - [Model.OfficeHeadlineCollection](docs/OfficeHeadlineCollection.md)
  - [Model.PaginationInfo](docs/PaginationInfo.md)
- - [Model.Point](docs/Point.md)
- - [Model.PointGeoJson](docs/PointGeoJson.md)
- - [Model.PointJsonLd](docs/PointJsonLd.md)
- - [Model.PointRelativeLocation](docs/PointRelativeLocation.md)
- - [Model.ProblemDetail](docs/ProblemDetail.md)
  - [Model.QuantitativeValue](docs/QuantitativeValue.md)
  - [Model.RegionCode](docs/RegionCode.md)
  - [Model.RelativeLocation](docs/RelativeLocation.md)
  - [Model.RelativeLocationGeoJson](docs/RelativeLocationGeoJson.md)
  - [Model.RelativeLocationJsonLd](docs/RelativeLocationJsonLd.md)
- - [Model.Sigmet](docs/Sigmet.md)
- - [Model.SigmetCollectionGeoJson](docs/SigmetCollectionGeoJson.md)
- - [Model.SigmetGeoJson](docs/SigmetGeoJson.md)
  - [Model.StateTerritoryCode](docs/StateTerritoryCode.md)
  - [Model.TextProduct](docs/TextProduct.md)
  - [Model.TextProductCollection](docs/TextProductCollection.md)
  - [Model.TextProductLocationCollection](docs/TextProductLocationCollection.md)
  - [Model.TextProductTypeCollection](docs/TextProductTypeCollection.md)
  - [Model.TextProductTypeCollectionGraphInner](docs/TextProductTypeCollectionGraphInner.md)
- - [Model.Zone](docs/Zone.md)
- - [Model.ZoneCollectionGeoJson](docs/ZoneCollectionGeoJson.md)
- - [Model.ZoneCollectionGeoJsonAllOfFeatures](docs/ZoneCollectionGeoJsonAllOfFeatures.md)
- - [Model.ZoneCollectionJsonLd](docs/ZoneCollectionJsonLd.md)
- - [Model.ZoneForecast](docs/ZoneForecast.md)
- - [Model.ZoneForecastGeoJson](docs/ZoneForecastGeoJson.md)
- - [Model.ZoneForecastPeriodsInner](docs/ZoneForecastPeriodsInner.md)
- - [Model.ZoneGeoJson](docs/ZoneGeoJson.md)
- - [Model.ZoneState](docs/ZoneState.md)
-
 
 <a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
