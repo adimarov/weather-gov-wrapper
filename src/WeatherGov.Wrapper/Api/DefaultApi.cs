@@ -46,7 +46,7 @@ namespace WeatherGov.Wrapper.Api
         /// <param name="limit">Limit (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Feature</returns>
-        Feature AlertsActive(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0);
+        FeatureCollection AlertsActive(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -70,7 +70,7 @@ namespace WeatherGov.Wrapper.Api
         /// <param name="limit">Limit (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Feature</returns>
-        ApiResponse<Feature> AlertsActiveWithHttpInfo(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0);
+        ApiResponse<FeatureCollection> AlertsActiveWithHttpInfo(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -3368,9 +3368,9 @@ namespace WeatherGov.Wrapper.Api
         /// <param name="limit">Limit (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Feature</returns>
-        public Feature AlertsActive(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0)
+        public FeatureCollection AlertsActive(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0)
         {
-            ApiResponse<Feature> localVarResponse = AlertsActiveWithHttpInfo(status, messageType, varEvent, code, area, point, region, regionType, zone, urgency, severity, certainty, limit);
+            ApiResponse<FeatureCollection> localVarResponse = AlertsActiveWithHttpInfo(status, messageType, varEvent, code, area, point, region, regionType, zone, urgency, severity, certainty, limit);
             return localVarResponse.Data;
         }
 
@@ -3393,7 +3393,7 @@ namespace WeatherGov.Wrapper.Api
         /// <param name="limit">Limit (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Feature</returns>
-        public ApiResponse<Feature> AlertsActiveWithHttpInfo(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0)
+        public ApiResponse<FeatureCollection> AlertsActiveWithHttpInfo(List<string>? status = default(List<string>?), List<string>? messageType = default(List<string>?), List<string>? varEvent = default(List<string>?), List<string>? code = default(List<string>?), List<AreaCode>? area = default(List<AreaCode>?), string? point = default(string?), List<MarineRegionCode>? region = default(List<MarineRegionCode>?), string? regionType = default(string?), List<string>? zone = default(List<string>?), List<AlertUrgency>? urgency = default(List<AlertUrgency>?), List<AlertSeverity>? severity = default(List<AlertSeverity>?), List<AlertCertainty>? certainty = default(List<AlertCertainty>?), int? limit = default(int?), int operationIndex = 0)
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -3483,7 +3483,7 @@ namespace WeatherGov.Wrapper.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Feature>("/alerts/active", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FeatureCollection>("/alerts/active", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AlertsActive", localVarResponse);
